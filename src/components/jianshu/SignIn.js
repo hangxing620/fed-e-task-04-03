@@ -33,7 +33,7 @@ function SignIn() {
 			password: "",
 		},
 		validationSchema,
-		onSubmit: (values) => {
+		onSubmit: (values, actions) => {
 			signIn({
 				user: {
 					email: values.email,
@@ -47,6 +47,7 @@ function SignIn() {
 						status: "success",
 						isClosable: true,
 					});
+					actions.resetForm()
 				} else {
 					toast({
 						title: "login fail",

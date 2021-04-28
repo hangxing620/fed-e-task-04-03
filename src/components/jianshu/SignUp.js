@@ -48,7 +48,7 @@ function SignUp() {
 			password: "",
 		},
 		validationSchema,
-		onSubmit: (values) => {
+		onSubmit: (values, actions) => {
 			signUp({
 				user: {
 					username: values.name,
@@ -63,6 +63,7 @@ function SignUp() {
 						status: "success",
 						isClosable: true,
 					});
+					actions.resetForm()
 				} else {
 					toast({
 						title: "SignUp fail",
